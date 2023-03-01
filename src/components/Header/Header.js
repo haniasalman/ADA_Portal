@@ -7,7 +7,7 @@ import {
   Menu,
   MenuItem,
   Fab,
-  Link
+  Link,
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
@@ -103,7 +103,7 @@ export default function Header(props) {
   var [notificationsMenu, setNotificationsMenu] = useState(null);
   var [isNotificationsUnread, setIsNotificationsUnread] = useState(true);
   var [profileMenu, setProfileMenu] = useState(null);
-  var [isSearchOpen, setSearchOpen] = useState(false);
+  var [isSearchOpen, setSearchOpen] = useState(true);
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -137,10 +137,18 @@ export default function Header(props) {
           )}
         </IconButton>
         <Typography variant="h6" weight="medium" className={classes.logotype}>
-          React Material Admin
+          Easypaisa
         </Typography>
         <div className={classes.grow} />
-        <Button component={Link} href="https://flatlogic.com/templates/react-material-admin-full" variant={"outlined"} color={"secondary"} className={classes.purchaseBtn}>Unlock full version</Button>
+        {/* <Button
+          component={Link}
+          href="https://flatlogic.com/templates/react-material-admin-full"
+          variant={"outlined"}
+          color={"secondary"}
+          className={classes.purchaseBtn}
+        >
+          Unlock full version
+        </Button> */}
         <div
           className={classNames(classes.search, {
             [classes.searchFocused]: isSearchOpen,
@@ -150,7 +158,7 @@ export default function Header(props) {
             className={classNames(classes.searchIcon, {
               [classes.searchIconOpened]: isSearchOpen,
             })}
-            onClick={() => setSearchOpen(!isSearchOpen)}
+            onClick={() => setSearchOpen(isSearchOpen)}
           >
             <SearchIcon classes={{ root: classes.headerIcon }} />
           </div>
@@ -166,7 +174,7 @@ export default function Header(props) {
           color="inherit"
           aria-haspopup="true"
           aria-controls="mail-menu"
-          onClick={e => {
+          onClick={(e) => {
             setNotificationsMenu(e.currentTarget);
             setIsNotificationsUnread(false);
           }}
@@ -179,11 +187,11 @@ export default function Header(props) {
             <NotificationsIcon classes={{ root: classes.headerIcon }} />
           </Badge>
         </IconButton>
-        <IconButton
+        {/* <IconButton
           color="inherit"
           aria-haspopup="true"
           aria-controls="mail-menu"
-          onClick={e => {
+          onClick={(e) => {
             setMailMenu(e.currentTarget);
             setIsMailsUnread(false);
           }}
@@ -195,17 +203,17 @@ export default function Header(props) {
           >
             <MailIcon classes={{ root: classes.headerIcon }} />
           </Badge>
-        </IconButton>
+        </IconButton> */}
         <IconButton
           aria-haspopup="true"
           color="inherit"
           className={classes.headerMenuButton}
           aria-controls="profile-menu"
-          onClick={e => setProfileMenu(e.currentTarget)}
+          onClick={(e) => setProfileMenu(e.currentTarget)}
         >
           <AccountIcon classes={{ root: classes.headerIcon }} />
         </IconButton>
-        <Menu
+        {/* <Menu
           id="mail-menu"
           open={Boolean(mailMenu)}
           anchorEl={mailMenu}
@@ -214,6 +222,7 @@ export default function Header(props) {
           className={classes.headerMenu}
           classes={{ paper: classes.profileMenu }}
           disableAutoFocusItem
+          disableScrollLock={true}
         >
           <div className={classes.profileMenuUser}>
             <Typography variant="h4" weight="medium">
@@ -227,7 +236,7 @@ export default function Header(props) {
               {messages.length} New Messages
             </Typography>
           </div>
-          {messages.map(message => (
+          {messages.map((message) => (
             <MenuItem key={message.id} className={classes.messageNotification}>
               <div className={classes.messageNotificationSide}>
                 <UserAvatar color={message.variant} name={message.name} />
@@ -259,7 +268,7 @@ export default function Header(props) {
             Send New Message
             <SendIcon className={classes.sendButtonIcon} />
           </Fab>
-        </Menu>
+        </Menu> */}
         <Menu
           id="notifications-menu"
           open={Boolean(notificationsMenu)}
@@ -267,8 +276,9 @@ export default function Header(props) {
           onClose={() => setNotificationsMenu(null)}
           className={classes.headerMenu}
           disableAutoFocusItem
+          disableScrollLock={true}
         >
-          {notifications.map(notification => (
+          {notifications.map((notification) => (
             <MenuItem
               key={notification.id}
               onClick={() => setNotificationsMenu(null)}
@@ -286,6 +296,7 @@ export default function Header(props) {
           className={classes.headerMenu}
           classes={{ paper: classes.profileMenu }}
           disableAutoFocusItem
+          disableScrollLock={true}
         >
           <div className={classes.profileMenuUser}>
             <Typography variant="h4" weight="medium">

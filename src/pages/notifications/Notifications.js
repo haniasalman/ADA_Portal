@@ -35,7 +35,7 @@ export default function NotificationsPage(props) {
   return (
     <>
       <PageTitle title="Notifications" />
-      <Grid container spacing={4}>
+      {/* <Grid container spacing={4}>
         <ToastContainer
           className={classes.toastsContainer}
           closeButton={
@@ -308,7 +308,7 @@ export default function NotificationsPage(props) {
             />
           </Widget>
         </Grid>
-      </Grid>
+      </Grid> */}
     </>
   );
 

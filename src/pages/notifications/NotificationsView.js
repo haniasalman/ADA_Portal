@@ -1,29 +1,26 @@
-import React from 'react';
-import { Grid, withStyles } from '@material-ui/core';
-import { Close as CloseIcon } from '@material-ui/icons';
-import classnames from 'classnames';
-import { ToastContainer } from 'react-toastify';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import tinycolor from 'tinycolor2';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import { Grid, withStyles } from "@material-ui/core";
+import { Close as CloseIcon } from "@material-ui/icons";
+import classnames from "classnames";
+import { ToastContainer } from "react-toastify";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import tinycolor from "tinycolor2";
+import "react-toastify/dist/ReactToastify.css";
 
-import Widget from '../../components/Widget';
-import PageTitle from '../../components/PageTitle';
-import NotificationCustomComponent from '../../components/Notification';
-import { Typography, Button } from '../../components/Wrappers';
+import Widget from "../../components/Widget";
+import PageTitle from "../../components/PageTitle";
+import NotificationCustomComponent from "../../components/Notification";
+import { Typography, Button } from "../../components/Wrappers";
 
 const CloseButton = ({ closeToast, className }) => (
-  <CloseIcon
-    className={className}
-    onClick={closeToast}
-  />
+  <CloseIcon className={className} onClick={closeToast} />
 );
 
-const NotificationsPage = ({ classes, ...props}) => (
+const NotificationsPage = ({ classes, ...props }) => (
   <React.Fragment>
     <PageTitle title="Notifications" />
-    <Grid container spacing={32}>
+    {/* <Grid container spacing={32}>
       <ToastContainer className={classes.toastsContainer} closeButton={<CloseButton className={classes.notificationCloseButton} />} closeOnClick={false} progressClassName={classes.notificationProgress} />
       <Grid item xs={12} md={6} lg={4}>
         <Widget title="Layout Options" disableWidgetMenu>
@@ -105,54 +102,56 @@ const NotificationsPage = ({ classes, ...props}) => (
           <NotificationCustomComponent className={classes.notificationItem} type="disc" message="The disc is full" variant="rounded" color="info" />
         </Widget>
       </Grid>
-    </Grid>
+    </Grid> */}
   </React.Fragment>
 );
 
 const styles = (theme) => ({
   layoutContainer: {
     height: 200,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginTop: theme.spacing.unit * 2,
-    border: '1px dashed',
+    border: "1px dashed",
     borderColor: theme.palette.primary.main,
-    position: 'relative',
+    position: "relative",
   },
   layoutText: {
     color: tinycolor(theme.palette.background.light).darken().toHexString(),
   },
   layoutButtonsRow: {
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
   },
   layoutButton: {
     backgroundColor: theme.palette.background.light,
     width: 125,
     height: 50,
-    outline: 'none',
-    border: 'none',
+    outline: "none",
+    border: "none",
   },
   layoutButtonActive: {
-    backgroundColor: tinycolor(theme.palette.background.light).darken().toHexString(),
+    backgroundColor: tinycolor(theme.palette.background.light)
+      .darken()
+      .toHexString(),
   },
   buttonsContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
     marginTop: theme.spacing.unit * 2,
   },
   notificationCallButton: {
-    color: 'white',
+    color: "white",
     marginBottom: theme.spacing.unit,
-    textTransform: 'none',
+    textTransform: "none",
   },
   codeContainer: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     marginTop: theme.spacing.unit * 2,
   },
   codeComponent: {
@@ -162,14 +161,14 @@ const styles = (theme) => ({
     marginTop: theme.spacing.unit * 2,
   },
   notificationCloseButton: {
-    position: 'absolute',
+    position: "absolute",
     right: theme.spacing.unit * 2,
   },
   toastsContainer: {
     width: 400,
     marginTop: theme.spacing.unit * 6,
     right: 0,
-  }
+  },
 });
 
-export default withStyles(styles, { withTheme: true})(NotificationsPage);
+export default withStyles(styles, { withTheme: true })(NotificationsPage);
