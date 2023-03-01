@@ -52,7 +52,6 @@ const structure = [
     children: [
       { label: "Icons", link: "/app/ui/icons" },
       { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
     ],
   },
 ];

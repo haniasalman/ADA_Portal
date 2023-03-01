@@ -22,7 +22,7 @@ import Sidebar from "../Sidebar";
 import Dashboard from "../../pages/dashboard";
 import Typography from "../../pages/typography";
 import Notifications from "../../pages/notifications";
-import Maps from "../../pages/maps";
+// import Maps from "../../pages/maps";
 import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
@@ -57,7 +57,7 @@ function Layout(props) {
               path="/app/ui"
               render={() => <Redirect to="/app/ui/icons" />}
             />
-            <Route path="/app/ui/maps" component={Maps} />
+            {/* <Route path="/app/ui/maps" component={Maps} /> */}
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
           </Switch>

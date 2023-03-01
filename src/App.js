@@ -2,14 +2,14 @@ import React from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // components
-import Layout from "./Layout";
+import Layout from "./components/Layout/Layout";
 
 // pages
-import Error from "../pages/error";
-import Login from "../pages/login";
+import Error from "./pages/error/Error";
+import Login from "./pages/login/Login";
 
 // context
-import { useUserState } from "../context/UserContext";
+import { useUserState } from "./context/UserContext";
 
 export default function App() {
   // global
@@ -37,7 +37,7 @@ export default function App() {
     return (
       <Route
         {...rest}
-        render={props =>
+        render={(props) =>
           isAuthenticated ? (
             React.createElement(component, props)
           ) : (
@@ -59,7 +59,7 @@ export default function App() {
     return (
       <Route
         {...rest}
-        render={props =>
+        render={(props) =>
           isAuthenticated ? (
             <Redirect
               to={{
