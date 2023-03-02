@@ -186,10 +186,11 @@ export default makeStyles((theme) => ({
     lineHeight: "27px",
     color: "#424A51",
     paddingTop: "40px",
-    textDecoration: "underline",
+    textDecoration: "underline !important",
   },
   loginLoader: {
-    marginLeft: theme.spacing(4),
+    marginLeft: "15px",
+    color: "#FFFFFF",
   },
   copyright: {
     marginTop: theme.spacing(4),

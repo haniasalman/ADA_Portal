@@ -119,6 +119,11 @@ const defaultTheme = {
         marginLeft: 10,
       },
     },
+    MuiOutlinedInput: {
+      inputAdornedStart: {
+        color: "#9B9B9B",
+      },
+    },
   },
 };
 
