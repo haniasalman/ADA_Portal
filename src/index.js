@@ -8,6 +8,9 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { LayoutProvider } from "./context/LayoutContext";
 import { UserProvider } from "./context/UserContext";
+// import "./fonts/SFCompactDisplay/sf-compact-display-medium-5864711817c30.woff";
+// import "./fonts/SFProDisplay/SFPRODISPLAYREGULAR.OTF";
+import "./index.css";
 
 ReactDOM.render(
   <LayoutProvider>

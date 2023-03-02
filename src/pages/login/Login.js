@@ -9,6 +9,10 @@ import {
   TextField,
   Fade,
 } from "@material-ui/core";
+import Input from "@material-ui/core/OutlinedInput";
+import InputAdornment from "@material-ui/core/InputAdornment";
+
+import * as Icons from "@material-ui/icons";
 import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 
@@ -17,7 +21,11 @@ import useStyles from "./styles";
 
 // logo
 import logo from "./logo.svg";
-import google from "../../assets/images/google.svg";
+// import google from "../../images/google.svg";
+import login_img from "../../assets/images/login.png";
+import ep_logo from "../../assets/images/Easypaisa long logo.png";
+import username from "../../assets/images/username.png";
+import password from "../../assets/images/password.png";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -38,13 +46,13 @@ function Login(props) {
 
   return (
     <Grid container className={classes.container}>
-      <div className={classes.logotypeContainer}>
-        <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
-      </div>
+      <img src={login_img} alt="logo" className={classes.logotypeContainer} />
+      {/* <img src={login_img} alt="logo" className={classes.logotypeImage} /> */}
+      {/* <Typography className={classes.logotypeText}>Material Admin</Typography> */}
+      {/* </div> */}
       <div className={classes.formContainer}>
         <div className={classes.form}>
-          <Tabs
+          {/* <Tabs
             value={activeTabId}
             onChange={(e, id) => setActiveTabId(id)}
             indicatorColor="primary"
@@ -53,92 +61,206 @@ function Login(props) {
           >
             <Tab label="Login" classes={{ root: classes.tab }} />
             <Tab label="New User" classes={{ root: classes.tab }} />
-          </Tabs>
-          {activeTabId === 0 && (
-            <React.Fragment>
-              <Typography variant="h1" className={classes.greeting}>
-                Good Morning, User
-              </Typography>
-              <Button size="large" className={classes.googleButton}>
+          </Tabs> */}
+          {/* {activeTabId === 0 && ( */}
+          <img src={ep_logo} className={classes.tab} />
+          <React.Fragment>
+            <Typography className={classes.greeting}>
+              Asan Digital Account Portal
+            </Typography>
+            {/* <Button size="large" className={classes.googleButton}>
                 <img src={google} alt="google" className={classes.googleIcon} />
                 &nbsp;Sign in with Google
-              </Button>
-              <div className={classes.formDividerContainer}>
-                <div className={classes.formDivider} />
-                <Typography className={classes.formDividerWord}>or</Typography>
-                <div className={classes.formDivider} />
-              </div>
-              <Fade in={error}>
+              </Button> */}
+            <div className={classes.formDividerContainer}>
+              {/* <div className={classes.formDivider} /> */}
+              <Typography className={classes.formDividerWord}>
+                Login to your account
+              </Typography>
+              {/* <div className={classes.formDivider} /> */}
+            </div>
+            {/* <Fade in={error}>
                 <Typography color="secondary" className={classes.errorMessage}>
                   Something is wrong with your login or password :(
                 </Typography>
-              </Fade>
-              <TextField
+              </Fade> */}
+            {/* <TextField
+              id="email"
+              InputProps={{
+                classes: {
+                  // underline: classes.textFieldUnderline,
+                  input: classes.textField,
+                },
+                startAdornment: (
+                  // <InputAdornment position="start">
+                  <Icons.AcUnit />
+                  // </InputAdornment>
+                ),
+              }}
+              value={loginValue}
+              onChange={(e) => setLoginValue(e.target.value)}
+              margin="normal"
+              placeholder="Username"
+              type="email"
+              // fullWidth
+            /> */}
+            <div className={classes.root}>
+              <Input
                 id="email"
-                InputProps={{
-                  classes: {
-                    underline: classes.textFieldUnderline,
-                    input: classes.textField,
-                  },
+                classes={{
+                  root: classes.input,
+                  notchedOutline: classes.notchedOutline,
+                  focused: classes.focused,
+                  adornedStart: classes.adornedStart,
                 }}
+                name="username"
+                type="text"
+                placeholder="User Name"
                 value={loginValue}
                 onChange={(e) => setLoginValue(e.target.value)}
-                margin="normal"
-                placeholder="Email Adress"
-                type="email"
-                fullWidth
+                startAdornment={
+                  <InputAdornment position="start">
+                    <img src={username} classes={classes.username} />
+                  </InputAdornment>
+                }
               />
-              <TextField
+            </div>
+
+            <div className={classes.root}>
+              <Input
                 id="password"
-                InputProps={{
-                  classes: {
-                    underline: classes.textFieldUnderline,
-                    input: classes.textField,
-                  },
+                classes={{
+                  root: classes.input,
+                  notchedOutline: classes.notchedOutline,
+                  focused: classes.focused,
+                  adornedStart: classes.adornedStart,
+                  input: classes.textField,
                 }}
                 value={passwordValue}
                 onChange={(e) => setPasswordValue(e.target.value)}
                 margin="normal"
                 placeholder="Password"
                 type="password"
-                fullWidth
+                startAdornment={
+                  <InputAdornment position="start">
+                    <img src={password} classes={classes.username} />
+                  </InputAdornment>
+                }
               />
-              <div className={classes.formButtons}>
-                {isLoading ? (
-                  <CircularProgress size={26} className={classes.loginLoader} />
-                ) : (
-                  <Button
-                    disabled={
-                      loginValue.length === 0 || passwordValue.length === 0
-                    }
-                    onClick={() =>
-                      loginUser(
-                        userDispatch,
-                        loginValue,
-                        passwordValue,
-                        props.history,
-                        setIsLoading,
-                        setError,
-                      )
-                    }
-                    variant="contained"
-                    color="primary"
-                    size="large"
-                  >
-                    Login
-                  </Button>
-                )}
+            </div>
+
+            {/* <TextField
+              id="password"
+              InputProps={{
+                classes: {
+                  underline: classes.textFieldUnderline,
+                  input: classes.textField,
+                },
+              }}
+              value={passwordValue}
+              onChange={(e) => setPasswordValue(e.target.value)}
+              margin="normal"
+              placeholder="Password"
+              type="password"
+              fullWidth
+            /> */}
+
+            {/* <TextField
+              // label="With normal TextField"
+              id="outlined-adornment-amount"
+              sx={{ m: 1, width: "25ch" }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <img src={username} classes={classes.username} />
+                  </InputAdornment>
+                ),
+              }}
+            /> */}
+            {/* <div className={classes.root}>
+              <Input
+                classes={{
+                  root: classes.input,
+                  notchedOutline: classes.notchedOutline,
+                  focused: classes.focused,
+                  adornedStart: classes.adornedStart,
+                }}
+                name="username"
+                type="text"
+                placeholder="User Name"
+                startAdornment={
+                  <InputAdornment position="start">
+                    <img src={username} classes={classes.username} />
+                  </InputAdornment>
+                }
+              />
+            </div> */}
+
+            <div className={classes.formButtons}>
+              {isLoading ? (
+                <CircularProgress size={26} className={classes.loginLoader} />
+              ) : (
                 <Button
+                  disableFocusRipple
+                  disableRipple
+                  style={{ backgroundColor: "#504C5B" }}
+                  className={classes.loginButton}
+                  disabled={
+                    loginValue.length === 0 || passwordValue.length === 0
+                  }
+                  onClick={() =>
+                    loginUser(
+                      userDispatch,
+                      loginValue,
+                      passwordValue,
+                      props.history,
+                      setIsLoading,
+                      setError,
+                    )
+                  }
+                  variant="contained"
                   color="primary"
-                  size="large"
-                  className={classes.forgetButton}
+                  // size="large"
                 >
-                  Forget Password
+                  Sign Up
                 </Button>
-              </div>
-            </React.Fragment>
-          )}
-          {activeTabId === 1 && (
+              )}
+              <Button
+                disableFocusRipple
+                disableRipple
+                style={{ backgroundColor: "#2DB45F" }}
+                className={classes.signupButton}
+                disabled={loginValue.length === 0 || passwordValue.length === 0}
+                onClick={() =>
+                  loginUser(
+                    userDispatch,
+                    loginValue,
+                    passwordValue,
+                    props.history,
+                    setIsLoading,
+                    setError,
+                  )
+                }
+                variant="contained"
+                color="primary"
+                // size="large"
+              >
+                Login
+              </Button>
+            </div>
+            <Button
+              // color="primary"
+              // size="large"
+              className={classes.forgetButton}
+              disableFocusRipple
+              disableRipple
+              style={{ backgroundColor: "transparent" }}
+            >
+              Forgot Password?
+            </Button>
+          </React.Fragment>
+          {/* )} */}
+          {/* {activeTabId === 1 && (
             <React.Fragment>
               <Typography variant="h1" className={classes.greeting}>
                 Welcome!
@@ -242,20 +364,8 @@ function Login(props) {
                 &nbsp;Sign in with Google
               </Button>
             </React.Fragment>
-          )}
+          )} */}
         </div>
-        <Typography color="primary" className={classes.copyright}>
-          © 2014-{new Date().getFullYear()}{" "}
-          <a
-            style={{ textDecoration: "none", color: "inherit" }}
-            href="https://flatlogic.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Flatlogic
-          </a>
-          , LLC. All rights reserved.
-        </Typography>
       </div>
     </Grid>
   );

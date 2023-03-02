@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "SF Compact Display";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Compact Display"),
+    url("./assets/fonts/SFCompactDisplay/sf-compact-display-medium-5864711817c30.woff")
+      format("woff");
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: normal;
+  src: local("SF Pro Display"),
+    url("./assets/fonts/SFProDisplay/SFPRODISPLAYREGULAR.OTF") format("OTF");
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap");
