@@ -120,7 +120,14 @@ const defaultTheme = {
       },
     },
     MuiOutlinedInput: {
-      inputAdornedStart: {
+      // inputAdornedStart: {
+      //   color: "#9B9B9B",
+      // },
+      input: {
+        "&:-webkit-autofill": {
+          "-webkit-box-shadow": "0 0 0 100px #FFFFFF inset",
+          "-webkit-text-fill-color": "#9B9B9B",
+        },
         color: "#9B9B9B",
       },
     },

@@ -62,7 +62,7 @@ export default makeStyles((theme) => ({
   greeting: {
     // fontWeight: 500,
     // textAlign: "center",
-    marginTop: theme.spacing(4),
+    marginTop: "33px",
     fontFamily: "SF Pro Display",
     fontStyle: "normal",
     fontWeight: "400",
@@ -100,7 +100,7 @@ export default makeStyles((theme) => ({
   //   textTransform: "none",
   // },
   formDividerContainer: {
-    marginTop: theme.spacing(4),
+    marginTop: "54px",
     display: "flex",
     alignItems: "center",
   },
@@ -222,7 +222,6 @@ export default makeStyles((theme) => ({
   notchedOutline: {
     border: "1.86px solid #D8D8D8",
   },
-  focused: {},
   adornedStart: {
     // color: "#2D343CDE",
     backgroundColor: "#FFFFFF",
@@ -236,5 +235,6 @@ export default makeStyles((theme) => ({
     lineHeight: " 89.34%",
     letterSpacing: "-0.04em",
     color: "#9B9B9B",
+    paddingLeft: "27px",
   },
 }));
