@@ -71,57 +71,16 @@ export default function Dashboard(props) {
               <Grid container item alignItems={"center"}>
                 <Grid item xs={6}>
                   <Typography size="xl" weight="medium" noWrap>
-                    12, 678
+                    1200
                   </Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <LineChart
-                    width={100}
-                    height={30}
-                    data={[
-                      { value: 10 },
-                      { value: 15 },
-                      { value: 10 },
-                      { value: 17 },
-                      { value: 18 },
-                    ]}
-                  >
-                    <Line
-                      type="natural"
-                      dataKey="value"
-                      stroke={theme.palette.success.main}
-                      strokeWidth={2}
-                      dot={false}
-                    />
-                  </LineChart>
+                  {mock.bigStat.map((stat) => (
+                    <Grid>
+                      <BigStat {...stat} />
+                    </Grid>
+                  ))}
                 </Grid>
               </Grid>
             </div>
-            <Grid
-              container
-              direction="row"
-              justify="space-between"
-              alignItems="center"
-            >
-              <Grid item xs={4}>
-                <Typography color="text" colorBrightness="secondary" noWrap>
-                  Registrations
-                </Typography>
-                <Typography size="md">860</Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography color="text" colorBrightness="secondary" noWrap>
-                  Sign Out
-                </Typography>
-                <Typography size="md">32</Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography color="text" colorBrightness="secondary" noWrap>
-                  Rate
-                </Typography>
-                <Typography size="md">3.25%</Typography>
-              </Grid>
-            </Grid>
           </Widget>
         </Grid>
         <Grid item lg={3} md={8} sm={6} xs={12}>

@@ -27,6 +27,7 @@ import useStyles from "./styles";
 import { Badge, Typography, Button } from "../Wrappers";
 import Notification from "../Notification/Notification";
 import UserAvatar from "../UserAvatar/UserAvatar";
+import ep_logo from "../../assets/images/Easypaisa long logo.png";
 
 // context
 import {
@@ -136,9 +137,16 @@ export default function Header(props) {
             />
           )}
         </IconButton>
-        <Typography variant="h6" weight="medium" className={classes.logotype}>
-          Easypaisa
-        </Typography>
+        <img
+          src={ep_logo}
+          alt="logo"
+          style={{
+            width: "217.38px",
+            height: "46.36px",
+            Top: "102.29px",
+            Left: "65.63px",
+          }}
+        />
         <div className={classes.grow} />
         {/* <Button
           component={Link}
@@ -149,6 +157,7 @@ export default function Header(props) {
         >
           Unlock full version
         </Button> */}
+
         <div
           className={classNames(classes.search, {
             [classes.searchFocused]: isSearchOpen,

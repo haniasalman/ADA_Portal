@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-export default makeStyles(theme => ({
+export default makeStyles((theme) => ({
   card: {
     minHeight: "100%",
     display: "flex",
@@ -20,7 +20,7 @@ export default makeStyles(theme => ({
   },
   progress: {
     marginBottom: theme.spacing(1),
-    backgroundColor: 'rgb(236, 236, 236)',
+    backgroundColor: "rgb(236, 236, 236)",
   },
   pieChartLegendWrapper: {
     height: "100%",
@@ -40,6 +40,10 @@ export default makeStyles(theme => ({
     flexGrow: 1,
     flexDirection: "column",
     justifyContent: "space-between",
+    width: "210px",
+    height: "40px",
+    left: "21.63%",
+    right: "73.6%",
   },
   tableWidget: {
     overflowX: "auto",
@@ -117,14 +121,14 @@ export default makeStyles(theme => ({
   },
   success: {
     backgroundColor: theme.palette.success.main,
-    color: '#fff',
+    color: "#fff",
   },
   warning: {
     backgroundColor: theme.palette.warning.main,
-    color: '#fff',
+    color: "#fff",
   },
   secondary: {
     backgroundColor: theme.palette.secondary.main,
-    color: '#fff',
-  }
+    color: "#fff",
+  },
 }));

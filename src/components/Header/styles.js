@@ -33,18 +33,22 @@ export default makeStyles((theme) => ({
   },
   search: {
     position: "relative",
-    borderRadius: 25,
+    borderRadius: 9,
     paddingLeft: theme.spacing(2.5),
     width: 36,
-    backgroundColor: fade(theme.palette.common.black, 0),
+    border: "2px solid",
+    borderColor: "rgba(0,0,0,0.2)",
+    backgroundColor: "white",
     transition: theme.transitions.create(["background-color", "width"]),
     "&:hover": {
       cursor: "pointer",
-      backgroundColor: fade(theme.palette.common.black, 0.08),
+      backgroundColor: "white",
     },
   },
   searchFocused: {
-    backgroundColor: fade(theme.palette.common.black, 0.08),
+    backgroundColor: "white",
+    border: "2px solid",
+    borderColor: "rgba(0,0,0,0.2)",
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: 250,
@@ -113,6 +117,12 @@ export default makeStyles((theme) => ({
   },
   headerIconCollapse: {
     color: "black",
+  },
+  dashboardLogo: {
+    width: "217.38px",
+    height: "46.36px",
+    Top: "102.29px",
+    Left: "65.63px",
   },
   profileMenu: {
     minWidth: 265,

@@ -36,8 +36,6 @@ const mock = {
       },
       color: "primary",
       registrations: {
-        monthly: { value: 830, profit: false },
-        weekly: { value: 215, profit: true },
         daily: { value: 33, profit: true },
       },
       bounce: {
@@ -56,8 +54,6 @@ const mock = {
       },
       color: "warning",
       registrations: {
-        monthly: { value: 32, profit: true },
-        weekly: { value: 8, profit: true },
         daily: { value: 2, profit: false },
       },
       bounce: {
