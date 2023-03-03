@@ -197,34 +197,28 @@ function Login(props) {
             </div> */}
 
             <div className={classes.formButtons}>
-              {isLoading ? (
-                <CircularProgress size={26} className={classes.loginLoader} />
-              ) : (
-                <Button
-                  disableFocusRipple
-                  disableRipple
-                  style={{ backgroundColor: "#504C5B" }}
-                  className={classes.loginButton}
-                  disabled={
-                    loginValue.length === 0 || passwordValue.length === 0
-                  }
-                  onClick={() =>
-                    loginUser(
-                      userDispatch,
-                      loginValue,
-                      passwordValue,
-                      props.history,
-                      setIsLoading,
-                      setError,
-                    )
-                  }
-                  variant="contained"
-                  color="primary"
-                  // size="large"
-                >
-                  Sign Up
-                </Button>
-              )}
+              <Button
+                disableFocusRipple
+                disableRipple
+                style={{ backgroundColor: "#504C5B" }}
+                className={classes.loginButton}
+                disabled={loginValue.length === 0 || passwordValue.length === 0}
+                // onClick={() =>
+                //   loginUser(
+                //     userDispatch,
+                //     loginValue,
+                //     passwordValue,
+                //     props.history,
+                //     setIsLoading,
+                //     setError,
+                //   )
+                // }
+                variant="contained"
+                color="primary"
+                // size="large"
+              >
+                Sign Up
+              </Button>
               <Button
                 disableFocusRipple
                 disableRipple
@@ -245,7 +239,12 @@ function Login(props) {
                 color="primary"
                 // size="large"
               >
-                Login
+                Login{" "}
+                {isLoading ? (
+                  <CircularProgress size={26} className={classes.loginLoader} />
+                ) : (
+                  " "
+                )}
               </Button>
             </div>
             <Button
