@@ -61,6 +61,11 @@ const defaultTheme = {
         backgroundColor: "#4A4A4A1A",
       },
     },
+    MuiAppBar: {
+      colorPrimary: {
+        backgroundColor: "#fffff",
+      },
+    },
     MuiInputBase: {
       input: {
         color: "black",
