@@ -48,7 +48,7 @@ export default function SidebarLink({
     );
 
   if (type === "divider") return <Divider className={classes.divider} />;
-  if (link && link.includes('http')) {
+  if (link && link.includes("http")) {
     return (
       <ListItem
         button
@@ -62,25 +62,25 @@ export default function SidebarLink({
         disableRipple
       >
         <a className={classes.externalLink} href={link}>
-        <ListItemIcon
-          className={classnames(classes.linkIcon, {
-            [classes.linkIconActive]: isLinkActive,
-          })}
-        >
-          {nested ? <Dot color={isLinkActive && "primary"} /> : icon}
-        </ListItemIcon>
-        <ListItemText
-          classes={{
-            primary: classnames(classes.linkText, {
-              [classes.linkTextActive]: isLinkActive,
-              [classes.linkTextHidden]: !isSidebarOpened,
-            }),
-          }}
-          primary={label}
-        />
+          <ListItemIcon
+            className={classnames(classes.linkIcon, {
+              [classes.linkIconActive]: isLinkActive,
+            })}
+          >
+            {nested ? <Dot color={isLinkActive && "#05AC72"} /> : icon}
+          </ListItemIcon>
+          <ListItemText
+            classes={{
+              primary: classnames(classes.linkText, {
+                [classes.linkTextActive]: isLinkActive,
+                [classes.linkTextHidden]: !isSidebarOpened,
+              }),
+            }}
+            primary={label}
+          />
         </a>
       </ListItem>
-    )
+    );
   }
   if (!children)
     return (
@@ -97,6 +97,24 @@ export default function SidebarLink({
         }}
         disableRipple
       >
+        {isLinkActive ? (
+          <Divider
+            component={link && Link}
+            orientation="vertical"
+            // variant="middle"
+            flexItem
+            style={{
+              background: "#05AC72",
+              borderRadius: "103.023px",
+              width: "35px",
+              height: "6px",
+              transform: "rotate(-90deg)",
+              marginTop: "18px",
+            }}
+          />
+        ) : (
+          ""
+        )}
         <ListItemIcon
           className={classnames(classes.linkIcon, {
             [classes.linkIconActive]: isLinkActive,
@@ -151,7 +169,7 @@ export default function SidebarLink({
           className={classes.nestedList}
         >
           <List component="div" disablePadding>
-            {children.map(childrenLink => (
+            {children.map((childrenLink) => (
               <SidebarLink
                 key={childrenLink && childrenLink.link}
                 location={location}
