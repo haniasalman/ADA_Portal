@@ -29,6 +29,7 @@ import { Badge, Typography, Button } from "../Wrappers";
 import Notification from "../Notification/Notification";
 import UserAvatar from "../UserAvatar/UserAvatar";
 import ep_logo from "../../assets/images/Easypaisa long logo.png";
+import UserImage from "../../assets/images/User.png";
 
 // context
 import {
@@ -309,16 +310,21 @@ export default function Header(props) {
           disableScrollLock={true}
         >
           <div className={classes.profileMenuUser}>
-            <Typography variant="h4" weight="medium">
-              John Smith
+            <img
+              src={UserImage}
+              alt="UserImage"
+              style={{
+                width: "60px",
+                height: "60px",
+                marginBottom: "10px",
+                marginLeft: "75px",
+              }}
+            />
+            <Typography variant="h4" weight="bold">
+              Khushbakht Rashid
             </Typography>
-            <Typography
-              className={classes.profileMenuLink}
-              component="a"
-              color="primary"
-              href="https://flatlogic.com"
-            >
-              Flalogic.com
+            <Typography component="a" color="primary">
+              ID : 47990
             </Typography>
           </div>
           <MenuItem
@@ -327,7 +333,7 @@ export default function Header(props) {
               classes.headerMenuItem,
             )}
           >
-            <AccountIcon className={classes.profileMenuIcon} /> Profile
+            Profile
           </MenuItem>
           <MenuItem
             className={classNames(
@@ -335,7 +341,7 @@ export default function Header(props) {
               classes.headerMenuItem,
             )}
           >
-            <AccountIcon className={classes.profileMenuIcon} /> Tasks
+            Settings
           </MenuItem>
           <MenuItem
             className={classNames(
@@ -343,9 +349,14 @@ export default function Header(props) {
               classes.headerMenuItem,
             )}
           >
-            <AccountIcon className={classes.profileMenuIcon} /> Messages
+            Change Password
           </MenuItem>
-          <div className={classes.profileMenuUser}>
+          <MenuItem
+            className={classNames(
+              classes.profileMenuItem,
+              classes.headerMenuItem,
+            )}
+          >
             <Typography
               className={classes.profileMenuLink}
               color="primary"
@@ -353,7 +364,7 @@ export default function Header(props) {
             >
               Sign Out
             </Typography>
-          </div>
+          </MenuItem>
         </Menu>
       </Toolbar>
       <Divider

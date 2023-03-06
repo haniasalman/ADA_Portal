@@ -11,6 +11,7 @@ export default makeStyles((theme) => ({
     alignItems: "center",
     flexGrow: 1,
     paddingBottom: theme.spacing(1),
+    width: "180px",
   },
   progressSection: {
     marginBottom: theme.spacing(1),
@@ -40,7 +41,7 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
     flexDirection: "column",
     justifyContent: "space-between",
-    width: "230px",
+    width: "180px",
     height: "110px",
     left: "21.63%",
     right: "73.6%",
