@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-export default makeStyles(theme => ({
+export default makeStyles((theme) => ({
   widgetWrapper: {
     display: "flex",
     minHeight: "100%",
@@ -27,7 +27,7 @@ export default makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     flexGrow: 1,
-    overflow: "auto",
+    // overflow: "auto",
   },
   moreButton: {
     margin: -theme.spacing(1),
@@ -41,6 +41,6 @@ export default makeStyles(theme => ({
     },
   },
   noWidgetShadow: {
-    boxShadow: 'none'
-  }
+    boxShadow: "none",
+  },
 }));

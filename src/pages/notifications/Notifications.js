@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { IconButton } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
+import { Grid, CircularProgress } from "@material-ui/core";
 import { Close as CloseIcon } from "@material-ui/icons";
 import { ToastContainer, toast } from "react-toastify";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import classnames from "classnames";
 import back_btn from "../../assets/images/back_btn.png";
+import Input from "@material-ui/core/OutlinedInput";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 // styles
 import "react-toastify/dist/ReactToastify.css";
@@ -44,173 +46,128 @@ export default function NotificationsPage(props) {
           </IconButton>
         }
       />
-      <Grid container spacing={4}>
-        <ToastContainer
-          className={classes.toastsContainer}
-          closeButton={
-            <CloseButton className={classes.notificationCloseButton} />
-          }
-          closeOnClick={false}
-          progressClassName={classes.notificationProgress}
-        />
-        <Grid item xs={12}>
-          <Widget disableWidgetMenu>
-            <Grid container item xs={12}>
-              <Grid item xs={4}>
-                <Widget
-                  title="Layout Options"
-                  noWidgetShadow
-                  disableWidgetMenu
-                  noBodyPadding
-                  noHeaderPadding
-                  style={{ paddingRight: 15 }}
-                  headerClass={classes.widgetHeader}
-                >
-                  <Typography>
-                    There are few position options available for notifications.
-                    You can click any of them to change notifications position:
-                  </Typography>
-                  <div className={classes.layoutContainer}>
-                    <div className={classes.layoutButtonsRow}>
-                      <button
-                        onClick={() => changeNotificationPosition(0)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 0,
-                        })}
-                      />
-                      <button
-                        onClick={() => changeNotificationPosition(1)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 1,
-                        })}
-                      />
-                      <button
-                        onClick={() => changeNotificationPosition(2)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 2,
-                        })}
-                      />
-                    </div>
-                    <Typography className={classes.layoutText} size="md">
-                      Click any position
-                    </Typography>
-                    <div className={classes.layoutButtonsRow}>
-                      <button
-                        onClick={() => changeNotificationPosition(3)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 3,
-                        })}
-                      />
-                      <button
-                        onClick={() => changeNotificationPosition(4)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 4,
-                        })}
-                      />
-                      <button
-                        onClick={() => changeNotificationPosition(5)}
-                        className={classnames(classes.layoutButton, {
-                          [classes.layoutButtonActive]:
-                            notificationsPosition === 5,
-                        })}
-                      />
-                    </div>
-                  </div>
-                </Widget>
-              </Grid>
-              <Grid item xs={4}>
-                <Widget
-                  title="Notifications Types"
-                  disableWidgetMenu
-                  noBodyPadding
-                  noWidgetShadow
-                  noHeaderPadding
-                  style={{ paddingRight: 15 }}
-                  headerClass={classes.widgetHeader}
-                >
-                  <Typography>
-                    Different types of notifications for lost of use cases.
-                    Custom classes are also supported.
-                  </Typography>
-                  <div className={classes.buttonsContainer}>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleNotificationCall("info")}
-                      className={classnames(classes.notificationCallButton)}
-                    >
-                      Info Message
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      onClick={() => handleNotificationCall("error")}
-                      className={classnames(classes.notificationCallButton)}
-                    >
-                      Error + Retry Message
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="success"
-                      onClick={() => handleNotificationCall("success")}
-                      className={classnames(classes.notificationCallButton)}
-                    >
-                      Success Message
-                    </Button>
-                  </div>
-                </Widget>
-              </Grid>
-              <Grid item xs={4}>
-                <Widget
-                  title="Usage"
-                  disableWidgetMenu
-                  noBodyPadding
-                  noWidgetShadow
-                  noHeaderPadding
-                  style={{ paddingRight: 15 }}
-                  headerClass={classes.widgetHeader}
-                >
-                  <Typography>
-                    Notifications are created with the help of{" "}
-                    <a href="https://github.com/fkhadra/react-toastify">
-                      react-toastify
-                    </a>
-                  </Typography>
-                  <div className={classes.codeContainer}>
-                    <SyntaxHighlighter
-                      className={classes.codeComponent}
-                      language="javascript"
-                      style={docco}
-                    >{`
-  // import needed components, functions and styles
-  import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+      <Grid container style={{ flexDirection: "column", paddingLeft: "25px" }}>
+        <Typography className={classes.typo}>Email ID</Typography>
 
-  const Page = () => {
-    <div>
-      <ToastContainer />
-      <button onClick={() => toast('Toast Message')}>
-        show notification
-      </button>
-    </div>
-  };
-            `}</SyntaxHighlighter>
-                    <Typography variant="caption">
-                      For more API information refer to the library
-                      documentation
-                    </Typography>
-                  </div>
-                </Widget>
-              </Grid>
-            </Grid>
-          </Widget>
+        <div className={classes.root}>
+          <Input
+            id="email"
+            classes={{
+              root: classes.input,
+              notchedOutline: classes.notchedOutline,
+              focused: classes.focused,
+              adornedStart: classes.adornedStart,
+            }}
+            name="username"
+            type="text"
+            placeholder="Enter Email ID Here"
+            startAdornment={<InputAdornment position="start" />}
+          />
+        </div>
+        <Typography className={classes.typo}>User ID</Typography>
+
+        <div className={classes.root}>
+          <Input
+            id="email"
+            classes={{
+              root: classes.input,
+              notchedOutline: classes.notchedOutline,
+              focused: classes.focused,
+              adornedStart: classes.adornedStart,
+            }}
+            name="username"
+            type="text"
+            placeholder="Enter User ID Here"
+            startAdornment={<InputAdornment position="start" />}
+          />
+        </div>
+        <Typography className={classes.typo}>New Password</Typography>
+
+        <div className={classes.root}>
+          <Input
+            id="email"
+            classes={{
+              root: classes.input,
+              notchedOutline: classes.notchedOutline,
+              focused: classes.focused,
+              adornedStart: classes.adornedStart,
+            }}
+            name="username"
+            type="text"
+            placeholder="Enter New Password Here"
+            startAdornment={<InputAdornment position="start" />}
+          />
+        </div>
+        <Typography className={classes.typo}>Confirm New Password</Typography>
+
+        <div className={classes.root}>
+          <Input
+            id="email"
+            classes={{
+              root: classes.input,
+              notchedOutline: classes.notchedOutline,
+              focused: classes.focused,
+              adornedStart: classes.adornedStart,
+            }}
+            name="username"
+            type="text"
+            placeholder="Enter Confirm New Password Here"
+            startAdornment={<InputAdornment position="start" />}
+          />
+        </div>
+
+        <div className={classes.formButtons}>
+          <Button
+            disableFocusRipple
+            disableRipple
+            style={{ backgroundColor: "#2DB45F" }}
+            className={classes.updateButton}
+            // disabled={loginValue.length === 0 || passwordValue.length === 0}
+            variant="contained"
+            color="primary"
+            // size="large"
+          >
+            Update
+          </Button>
+        </div>
+      </Grid>
+      {/* <Widget disableWidgetMenu>
+        <Grid container item xs={12}>
+          <Grid item>
+            <Widget
+              title="Layout Options"
+              noWidgetShadow
+              disableWidgetMenu
+              noBodyPadding
+              noHeaderPadding
+              style={{ paddingRight: 15 }}
+              headerClass={classes.widgetHeader}
+            >
+              <Typography>Email ID</Typography>
+
+              <div className={classes.root}>
+                <Input
+                  id="email"
+                  classes={{
+                    root: classes.input,
+                    notchedOutline: classes.notchedOutline,
+                    focused: classes.focused,
+                    adornedStart: classes.adornedStart,
+                  }}
+                  name="username"
+                  type="text"
+                  placeholder="User Name"
+                  startAdornment={
+                    <InputAdornment position="start"></InputAdornment>
+                  }
+                />
+              </div>
+            </Widget>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+      </Widget> */}
+      {/* </Grid> */}
+      {/* <Grid item xs={12} md={6} lg={4}>
           <Widget title="Notification Types Examples" disableWidgetMenu>
             <Notification
               className={classes.notificationItem}
@@ -347,8 +304,8 @@ export default function NotificationsPage(props) {
               color="info"
             />
           </Widget>
-        </Grid>
-      </Grid>
+        </Grid> */}
+      {/* </Grid> */}
     </>
   );
 

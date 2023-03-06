@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 import tinycolor from "tinycolor2";
 
-export default makeStyles(theme => ({
+export default makeStyles((theme) => ({
   layoutContainer: {
     height: 200,
     display: "flex",
@@ -14,9 +14,7 @@ export default makeStyles(theme => ({
     position: "relative",
   },
   layoutText: {
-    color: tinycolor(theme.palette.background.light)
-      .darken()
-      .toHexString(),
+    color: tinycolor(theme.palette.background.light).darken().toHexString(),
   },
   layoutButtonsRow: {
     width: "100%",
@@ -80,6 +78,76 @@ export default makeStyles(theme => ({
     paddingRight: theme.spacing(4),
   },
   widgetHeader: {
-    paddingBottom: 8
-  }
+    paddingBottom: 8,
+  },
+  root: {
+    paddingTop: "5px",
+    // backgroundColor: "white",
+  },
+  input: {
+    color: "white",
+
+    "&:hover $notchedOutline": {
+      border: "1px solid #C9C9C9",
+    },
+    "&$focused $notchedOutline": {
+      border: "1px solid #C9C9C9",
+    },
+  },
+  notchedOutline: {
+    border: "1px solid #C9C9C9",
+  },
+  adornedStart: {
+    // color: "#2D343CDE",
+    backgroundColor: "#FFFFFF",
+    borderRadius: "9px",
+    width: "433px",
+    height: "58px",
+    fontFamily: "SF Compact Display",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "20px",
+    lineHeight: " 89.34%",
+    letterSpacing: "-0.04em",
+    color: "#989898",
+    paddingLeft: "20px",
+  },
+  typo: {
+    fontFamily: "SF Compact Display",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "14px",
+    lineHeight: "150%",
+    // display: flex;
+    // align-items: center;
+
+    color: "#525252",
+    paddingTop: "29px",
+    paddingLeft: "10px",
+  },
+  formButtons: {
+    width: "39%",
+    marginTop: "44px",
+    display: "flex",
+    justifyContent: "end",
+    alignItems: "center",
+    float: "right",
+  },
+  updateButton: {
+    background: "#504C5B",
+    borderRadius: "9px",
+    fontFamily: "SF Compact Display",
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: "18px",
+    lineHeight: "150%",
+    display: "flex",
+    alignItems: "center",
+    textAlign: "center",
+    color: "#FFFFFF",
+    width: "237px",
+    height: "57px",
+    boxShadow: "none",
+    textTransform: "none",
+  },
 }));
