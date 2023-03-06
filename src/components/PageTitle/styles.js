@@ -8,6 +8,7 @@ export default makeStyles((theme) => ({
     marginTop: "34px",
   },
   typo: {
+    color: "black",
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "500",

@@ -7,6 +7,7 @@ import {
   MenuItem,
   Button,
 } from "@material-ui/core";
+import * as Icons from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import {
   ResponsiveContainer,
@@ -51,18 +52,11 @@ export default function Dashboard(props) {
 
   return (
     <>
-      <PageTitle
-        title="Dashboard"
-        button={
-          <Button variant="contained" size="medium" color="secondary">
-            Latest Reports
-          </Button>
-        }
-      />
+      <PageTitle title="Dashboard" />
       <Grid container spacing={4}>
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
-            title="Visits Today"
+            title="Total Users"
             upperTitle
             bodyClass={classes.fullHeightBody}
             className={classes.card}
@@ -70,25 +64,92 @@ export default function Dashboard(props) {
             <div className={classes.visitsNumberContainer}>
               <Grid container item alignItems={"center"}>
                 <Grid item xs={6}>
-                  <Typography size="xl" weight="medium" noWrap>
-                    1200
+                  <Typography size="xl" weight="bold" noWrap>
+                    40,689
                   </Typography>
-                  {mock.bigStat.map((stat) => (
-                    <Grid>
-                      <BigStat {...stat} />
-                    </Grid>
-                  ))}
                 </Grid>
               </Grid>
             </div>
+            <Icons.TrendingUp />
+            <Typography className={classes.materialIconText}>
+              1.3% from yesterday
+            </Typography>
           </Widget>
         </Grid>
-        <Grid item lg={3} md={8} sm={6} xs={12}>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Widget
+            title="Approved"
+            upperTitle
+            bodyClass={classes.fullHeightBody}
+            className={classes.card}
+          >
+            <div className={classes.visitsNumberContainer}>
+              <Grid container item alignItems={"center"}>
+                <Grid item xs={6}>
+                  <Typography size="xl" weight="bold" noWrap>
+                    10,293
+                  </Typography>
+                </Grid>
+              </Grid>
+            </div>
+            <Icons.TrendingUp />
+            <Typography className={classes.materialIconText}>
+              1.3% from yesterday
+            </Typography>
+          </Widget>
+        </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Widget
+            title="Rejected"
+            upperTitle
+            bodyClass={classes.fullHeightBody}
+            className={classes.card}
+          >
+            <div className={classes.visitsNumberContainer}>
+              <Grid container item alignItems={"center"}>
+                <Grid item xs={6}>
+                  <Typography size="xl" weight="bold" noWrap>
+                    89,000
+                  </Typography>
+                </Grid>
+              </Grid>
+            </div>
+            <Icons.TrendingDown />
+            <Typography className={classes.materialIconText}>
+              1.9% from yesterday
+            </Typography>
+          </Widget>
+        </Grid>
+        <Grid item lg={3} md={4} sm={6} xs={12}>
+          <Widget
+            title="Total Pending"
+            upperTitle
+            bodyClass={classes.fullHeightBody}
+            className={classes.card}
+          >
+            <div className={classes.visitsNumberContainer}>
+              <Grid container item alignItems={"center"}>
+                <Grid item xs={6}>
+                  <Typography size="xl" weight="bold" noWrap>
+                    2040
+                  </Typography>
+                </Grid>
+              </Grid>
+            </div>
+            <Icons.TrendingUp />
+            <Typography className={classes.materialIconText}>
+              1.3% from yesterday
+            </Typography>
+          </Widget>
+        </Grid>
+      </Grid>
+      <Grid container spacing={3}>
+        <Grid item lg={4} md={8} sm={6} xs={12}>
           <Widget
             title="App Performance"
             upperTitle
             className={classes.card}
-            bodyClass={classes.fullHeightBody}
+            bodyClass={classes.fullChartBody}
           >
             <div className={classes.performanceLegendWrapper}>
               <div className={classes.legendElement}>
@@ -146,12 +207,12 @@ export default function Dashboard(props) {
             </div>
           </Widget>
         </Grid>
-        <Grid item lg={3} md={8} sm={6} xs={12}>
+        <Grid item lg={4} md={8} sm={6} xs={12}>
           <Widget
             title="Server Overview"
             upperTitle
             className={classes.card}
-            bodyClass={classes.fullHeightBody}
+            bodyClass={classes.fullChartBody}
           >
             <div className={classes.serverOverviewElement}>
               <Typography
@@ -227,7 +288,7 @@ export default function Dashboard(props) {
             </div>
           </Widget>
         </Grid>
-        <Grid item lg={3} md={4} sm={6} xs={12}>
+        <Grid item lg={4} md={4} sm={6} xs={12}>
           <Widget title="Revenue Breakdown" upperTitle className={classes.card}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
@@ -369,11 +430,7 @@ export default function Dashboard(props) {
             </ResponsiveContainer>
           </Widget>
         </Grid>
-        {mock.bigStat.map((stat) => (
-          <Grid item md={4} sm={6} xs={12} key={stat.product}>
-            <BigStat {...stat} />
-          </Grid>
-        ))}
+
         {/* <Grid item xs={12}>
           <Widget
             title="Support Requests"
