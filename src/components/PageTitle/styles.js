@@ -11,7 +11,7 @@ export default makeStyles((theme) => ({
     color: "black",
     fontFamily: "Roboto",
     fontStyle: "normal",
-    fontWeight: "500",
+    fontWeight: "700",
     fontSize: "26px",
     lineHeight: "24px",
     display: "flex",

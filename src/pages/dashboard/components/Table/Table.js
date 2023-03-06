@@ -5,9 +5,10 @@ import {
   TableHead,
   TableBody,
   TableCell,
-  Chip
+  Chip,
 } from "@material-ui/core";
 import useStyles from "../../styles";
+import { useHistory } from "react-router-dom";
 
 const states = {
   sent: "success",
@@ -17,21 +18,27 @@ const states = {
 
 export default function TableComponent({ data }) {
   const classes = useStyles();
-  var keys = Object.keys(data[0]).map(i => i.toUpperCase());
+  var keys = Object.keys(data[0]).map((i) => i.toUpperCase());
   keys.shift(); // delete "id" key
 
+  const history = useHistory();
+
+  const handleRowClick = () => {
+    console.log("hello");
+    history.push("/app/typography"); // Navigate to the hardcoded link
+  };
   return (
     <Table className="mb-0">
       <TableHead>
         <TableRow>
-          {keys.map(key => (
+          {keys.map((key) => (
             <TableCell key={key}>{key}</TableCell>
           ))}
         </TableRow>
       </TableHead>
       <TableBody>
         {data.map(({ id, name, email, product, price, date, city, status }) => (
-          <TableRow key={id}>
+          <TableRow onClick={handleRowClick} key={id}>
             <TableCell className="pl-3 fw-normal">{name}</TableCell>
             <TableCell>{email}</TableCell>
             <TableCell>{product}</TableCell>
@@ -39,7 +46,10 @@ export default function TableComponent({ data }) {
             <TableCell>{date}</TableCell>
             <TableCell>{city}</TableCell>
             <TableCell>
-              <Chip label={status} classes={{root: classes[states[status.toLowerCase()]]}}/>
+              <Chip
+                label={status}
+                classes={{ root: classes[states[status.toLowerCase()]] }}
+              />
             </TableCell>
           </TableRow>
         ))}
