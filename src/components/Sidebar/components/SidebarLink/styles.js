@@ -15,6 +15,7 @@ export default makeStyles((theme) => ({
   },
   linkActive: {
     backgroundColor: "none",
+    paddingLeft: "0px",
     // marginTop: "42px",
   },
   linkNested: {
@@ -33,6 +34,7 @@ export default makeStyles((theme) => ({
   },
   linkIconActive: {
     color: "#05AC72",
+    width: "24px",
   },
   linkText: {
     padding: 0,

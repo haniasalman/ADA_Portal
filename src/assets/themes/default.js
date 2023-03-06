@@ -65,7 +65,17 @@ const defaultTheme = {
       colorPrimary: {
         backgroundColor: "#fffff",
       },
+      root: {
+        boxShadow: "none",
+      },
     },
+
+    MuiListItemIcon: {
+      root: {
+        minWidth: "24px",
+      },
+    },
+
     MuiInputBase: {
       input: {
         color: "black",
@@ -90,6 +100,9 @@ const defaultTheme = {
             backgroundColor: "#F3F5FF",
           },
         },
+      },
+      gutters: {
+        paddingLeft: "34px",
       },
       button: {
         "&:hover, &:focus": {
