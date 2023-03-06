@@ -30,17 +30,22 @@ import {
 } from "../../context/LayoutContext";
 
 const structure = [
-  { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+  { id: 0, label: "ADA Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
   {
     id: 1,
     label: "Typography",
     link: "/app/typography",
     icon: <TypographyIcon />,
   },
-  { id: 2, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
+  {
+    id: 2,
+    label: "ADA Application Manager",
+    link: "/app/tables",
+    icon: <TableIcon />,
+  },
   {
     id: 3,
-    label: "Notifications",
+    label: "Change Password",
     link: "/app/notifications",
     icon: <NotificationsIcon />,
   },
