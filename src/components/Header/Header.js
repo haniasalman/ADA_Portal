@@ -6,6 +6,7 @@ import {
   InputBase,
   Menu,
   MenuItem,
+  Divider,
   Fab,
   Link,
 } from "@material-ui/core";
@@ -355,6 +356,26 @@ export default function Header(props) {
           </div>
         </Menu>
       </Toolbar>
+      <Divider
+        orientation="horizontal"
+        style={{
+          background: "#05AC72",
+          borderRadius: "103.023px",
+          width: "200px",
+          height: "6px",
+          marginLeft: "80px",
+        }}
+      />
+      <Divider
+        orientation="horizontal"
+        style={{
+          background: "#C5C7CD",
+          borderRadius: "103.023px",
+          width: "2002px",
+          height: "2px",
+          top: "8.95px",
+        }}
+      />
     </AppBar>
   );
 }
