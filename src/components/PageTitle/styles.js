@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 
-export default makeStyles(theme => ({
+export default makeStyles((theme) => ({
   pageTitleContainer: {
     display: "flex",
     justifyContent: "space-between",
@@ -8,7 +8,7 @@ export default makeStyles(theme => ({
     marginTop: theme.spacing(5),
   },
   typo: {
-    color: theme.palette.text.hint,
+    color: "black",
   },
   button: {
     boxShadow: theme.customShadows.widget,
