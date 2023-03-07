@@ -52,7 +52,3 @@ export default function EditStatusPopup({ handleClose, content }) {
     </div>
   );
 }
-EditStatusPopup.propTypes = {
-  content: PropTypes.node.isRequired,
-  handleClose: PropTypes.func.isRequired,
-};
