@@ -19,6 +19,7 @@ import Widget from "../../components/Widget/Widget";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Notification from "../../components/Notification";
 import { Typography, Button } from "../../components/Wrappers/Wrappers";
+import { useHistory } from "react-router-dom";
 
 const positions = [
   toast.POSITION.TOP_LEFT,
@@ -32,6 +33,12 @@ const positions = [
 export default function NotificationsPage(props) {
   var classes = useStyles();
 
+  const history = useHistory();
+
+  const handleBackButtonClick = () => {
+    history.push("/app/dashboard"); // Navigate to the hardcoded link
+  };
+
   // local
   var [notificationsPosition, setNotificationPosition] = useState(2);
   var [errorToastId, setErrorToastId] = useState(null);
@@ -41,8 +48,12 @@ export default function NotificationsPage(props) {
       <PageTitle
         title="Change Password"
         button={
-          <IconButton aria-label="back_button">
-            <img src={back_btn} className={classes.back_button} />
+          <IconButton aria-label="back_button" onClick={handleBackButtonClick}>
+            <img
+              src={back_btn}
+              alt={"back_button"}
+              className={classes.back_button}
+            />
           </IconButton>
         }
       />
