@@ -159,7 +159,7 @@ function getFontSize(size, variant = "", theme) {
       multiplier = 3;
       break;
     default:
-      multiplier = 1;
+      multiplier = 1.5;
       break;
   }
 
