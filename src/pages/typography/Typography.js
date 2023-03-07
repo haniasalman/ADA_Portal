@@ -6,21 +6,27 @@ import useStyles from "./styles";
 
 // components
 import PageTitle from "../../components/PageTitle";
-import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
 import { IconButton } from "@material-ui/core";
 import back_btn from "../../assets/images/back_btn.png";
 import ApplicationDetailImg from "../../assets/images/ApplicationDetailImg.png";
 import { useHistory } from "react-router-dom";
 import { Divider } from "@material-ui/core";
+import { useState } from "react";
+import EditStatusPopup from "./editStatusPopup";
 
 export default function TypographyPage() {
   var classes = useStyles();
 
   const history = useHistory();
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleBackButtonClick = () => {
     history.push("/app/tables"); // Navigate to the hardcoded link
+  };
+
+  const toggleEditButtonPopup = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -80,7 +86,15 @@ export default function TypographyPage() {
                   </Typography>
                 </div>
                 <Typography>
-                  <button className={classes.editButton}>Edit Status</button>
+                  <button
+                    className={classes.editButton}
+                    onClick={toggleEditButtonPopup}
+                  >
+                    Edit Status
+                  </button>
+                  {isOpen && (
+                    <EditStatusPopup handleClose={toggleEditButtonPopup} />
+                  )}
                 </Typography>
               </div>
             </div>
