@@ -21,4 +21,16 @@ export default makeStyles((theme) => ({
     marginRight: "20px",
     fontSize: "8px",
   },
+
+  editButton: {
+    marginTop: "20px",
+    marginLeft: "20px",
+    marginRight: "20px",
+    fontSize: "8px",
+    color: "#ffff",
+    backgroundColor: "black",
+    borderRadius: "20px",
+    width: "80px",
+    height: "30px",
+  },
 }));

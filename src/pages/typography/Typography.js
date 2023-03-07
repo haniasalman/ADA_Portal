@@ -70,6 +70,33 @@ export default function TypographyPage() {
                   marginTop: "56px",
                 }}
               />
+              <div style={{ display: "flex" }}>
+                <div style={{ marginTop: "20px" }}>
+                  <Typography varient="h4" className={classes.heading}>
+                    Current Status :Approved
+                  </Typography>
+                  <Typography className={classes.text}>
+                    BET ID : 567829
+                  </Typography>
+                </div>
+                <Typography>
+                  <button className={classes.editButton}>Edit Status</button>
+                </Typography>
+              </div>
+            </div>
+            <Divider
+              orientation="horizontal"
+              flexItem
+              style={{
+                background: "#979797",
+                borderRadius: "103.023px",
+                width: "980px",
+                height: "2px",
+
+                marginTop: "20px",
+              }}
+            />
+            <div style={{ display: "flex" }}>
               <div style={{ marginTop: "20px" }}>
                 <Typography className={classes.text}>
                   Date of Lending : 12th March,2023
@@ -84,10 +111,10 @@ export default function TypographyPage() {
                 style={{
                   background: "#979797",
                   borderRadius: "103.023px",
-                  width: "70px",
+                  width: "40px",
                   height: "2px",
                   transform: "rotate(-90deg)",
-                  marginTop: "56px",
+                  marginTop: "30px",
                 }}
               />
               <div style={{ marginTop: "20px" }}>
