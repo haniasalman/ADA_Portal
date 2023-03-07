@@ -22,7 +22,7 @@ function Badge({ children, colorBrightness, color, ...props }) {
   var theme = useTheme();
   var Styled = createStyled({
     badge: {
-      backgroundColor: getColor(color, theme, colorBrightness),
+      backgroundColor: "#EF3826",
     },
   });
 
