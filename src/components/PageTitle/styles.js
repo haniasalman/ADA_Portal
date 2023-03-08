@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
     fontFamily: "Roboto",
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: "26px",
+    fontSize: "26px !important",
     lineHeight: "24px",
     display: "flex",
     alignItems: "center",
