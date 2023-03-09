@@ -85,17 +85,16 @@ export default function TypographyPage() {
                     BET ID : 567829
                   </Typography>
                 </div>
-                <Typography>
-                  <button
-                    className={classes.editButton}
-                    onClick={toggleEditButtonPopup}
-                  >
-                    Edit Status
-                  </button>
-                  {isOpen && (
-                    <EditStatusPopup handleClose={toggleEditButtonPopup} />
-                  )}
-                </Typography>
+
+                <button
+                  className={classes.editButton}
+                  onClick={toggleEditButtonPopup}
+                >
+                  Edit Status
+                </button>
+                {isOpen && (
+                  <EditStatusPopup handleClose={toggleEditButtonPopup} />
+                )}
               </div>
             </div>
             <Divider
