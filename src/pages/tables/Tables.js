@@ -11,25 +11,383 @@ import Table from "../dashboard/components/Table/Table";
 import mock from "../dashboard/mock";
 import useStyles from "./styles";
 import classNames from "classnames";
+import girl_icon from "../../assets/images/girl_icon.jpg";
 
 const datatableData = [
-  ["Joe James", "Example Inc.", "Yonkers", "NY"],
-  ["John Walsh", "Example Inc.", "Hartford", "CT"],
-  ["Bob Herm", "Example Inc.", "Tampa", "FL"],
-  ["James Houston", "Example Inc.", "Dallas", "TX"],
-  ["Prabhakar Linwood", "Example Inc.", "Hartford", "CT"],
-  ["Kaui Ignace", "Example Inc.", "Yonkers", "NY"],
-  ["Esperanza Susanne", "Example Inc.", "Hartford", "CT"],
-  ["Christian Birgitte", "Example Inc.", "Tampa", "FL"],
-  ["Meral Elias", "Example Inc.", "Hartford", "CT"],
-  ["Deep Pau", "Example Inc.", "Yonkers", "NY"],
-  ["Sebastiana Hani", "Example Inc.", "Dallas", "TX"],
-  ["Marciano Oihana", "Example Inc.", "Yonkers", "NY"],
-  ["Brigid Ankur", "Example Inc.", "Dallas", "TX"],
-  ["Anna Siranush", "Example Inc.", "Yonkers", "NY"],
-  ["Avram Sylva", "Example Inc.", "Hartford", "CT"],
-  ["Serafima Babatunde", "Example Inc.", "Tampa", "FL"],
-  ["Gaston Festus", "Example Inc.", "Tampa", "FL"],
+  [
+    "Joe James",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "ID not valid",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "John Walsh",
+    "1234562223",
+    "61101-1816234-9",
+    "Rejected",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Bob Herm",
+    "1234562223",
+    "61101-1816234-9",
+    "In Process",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "James Houston",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Prabhakar Linwood",
+    "1234562223",
+    "61101-1816234-9",
+    "Rejected",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Kaui Ignace",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Esperanza Susanne",
+    "1234562223",
+    "61101-1816234-9",
+    "Rejected",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Christian Birgitte",
+    "1234562223",
+    "61101-1816234-9",
+    "In Process",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Meral Elias",
+    "1234562223",
+    "61101-1816234-9",
+    "Rejected",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Deep Pau",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Sebastiana Hani",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Marciano Oihana",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Brigid Ankur",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Anna Siranush",
+    "1234562223",
+    "61101-1816234-9",
+    "Approved",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Avram Sylva",
+    "1234562223",
+    "61101-1816234-9",
+    "Rejected",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Serafima Babatunde",
+    "1234562223",
+    "61101-1816234-9",
+    "In Process",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
+  [
+    "Gaston Festus",
+    "1234562223",
+    "61101-1816234-9",
+    "In Process",
+    "CNIC Expired",
+    <img
+      src={girl_icon}
+      alt="UserImage"
+      style={{
+        width: "50px",
+        height: "50px",
+        // marginBottom: "10px",
+        borderRadius: "25px",
+      }}
+    />,
+    "Pass",
+    "12:00/ 1/03/2023",
+    "12:00/ 1/03/2023",
+    "2 Day",
+    "12:00/ 1/03/2023",
+  ],
 ];
 
 // const useStyles = makeStyles((theme) => ({
@@ -132,9 +490,21 @@ export default function Tables() {
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="Employee List"
+            // title="Employee List"
             data={datatableData}
-            columns={["Name", "Company", "City", "State"]}
+            columns={[
+              "Name",
+              "Application ID",
+              "CNIC Number",
+              "Account Status",
+              "Rejection Reason",
+              "Picture",
+              "PDM Check",
+              "Receiving Date",
+              "Application Decision",
+              "TAT",
+              "Status change date",
+            ]}
             options={{
               filterType: "checkbox",
             }}
