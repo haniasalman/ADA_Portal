@@ -126,10 +126,20 @@ const defaultTheme = {
         paddingLeft: 24,
       },
       head: {
-        fontSize: "0.95rem",
+        fontSize: "16px",
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: 700,
+        lineHeight: "25px",
+        color: "rgba(0, 0, 0, 0.87)",
       },
       body: {
-        fontSize: "0.95rem",
+        fontSize: "14px",
+        fontFamily: "Roboto",
+        fontStyle: "normal",
+        fontWeight: 400,
+        lineHeight: "25px",
+        color: "rgba(0, 0, 0, 0.87)",
       },
     },
     PrivateSwitchBase: {
