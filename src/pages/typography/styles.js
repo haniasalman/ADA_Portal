@@ -10,6 +10,15 @@ export default makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
     marginTop: theme.spacing(1),
   },
+  EditStatus: {
+    border: "1px solid",
+    borderRadius: "12px",
+    borderColor: "#979797",
+    padding: "10px",
+    marginTop: "2px",
+    marginLeft: "5px",
+    marginBottom: "15px",
+  },
   heading: {
     // marginBottom: theme.spacing(2),
     marginLeft: "20px",

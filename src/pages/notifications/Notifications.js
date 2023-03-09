@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { IconButton } from "@material-ui/core";
-import { Grid, CircularProgress } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { Close as CloseIcon } from "@material-ui/icons";
-import { ToastContainer, toast } from "react-toastify";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import classnames from "classnames";
+import { toast } from "react-toastify";
 import back_btn from "../../assets/images/back_btn.png";
 import Input from "@material-ui/core/OutlinedInput";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -15,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import useStyles from "./styles";
 
 // components
-import Widget from "../../components/Widget/Widget";
+
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Notification from "../../components/Notification";
 import { Typography, Button } from "../../components/Wrappers/Wrappers";

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Grid, Button, TextField, InputBase } from "@material-ui/core";
 import MUIDataTable from "mui-datatables";
+import { useHistory } from "react-router-dom";
 import { Search as SearchIcon } from "@material-ui/icons";
 // components
 import PageTitle from "../../components/PageTitle";
@@ -399,6 +400,33 @@ const datatableData = [
 export default function Tables() {
   var classes = useStyles();
 
+  const history = useHistory();
+
+  const handleRowClick = (rowData) => {
+    const [name, company, city, state] = rowData;
+    history.push("/app/typography"); // Navigate to the new page
+  };
+
+  const columns = [
+    "Name",
+    "Application ID",
+    "CNIC Number",
+    "Account Status",
+    "Rejection Reason",
+    "Picture",
+    "PDM Check",
+    "Receiving Date",
+    "Application Decision",
+    "TAT",
+    "Status change date",
+  ];
+  const options = {
+    filter: true, // Enable filtering of the data
+    search: true, // Enable search box for the entire table
+    filterType: "checkbox",
+    onRowClick: handleRowClick, // Call the handleRowClick function when a row is clicked
+  };
+
   var [isSearchOpen, setSearchOpen] = useState(true);
 
   return (
@@ -492,22 +520,8 @@ export default function Tables() {
           <MUIDataTable
             // title="Employee List"
             data={datatableData}
-            columns={[
-              "Name",
-              "Application ID",
-              "CNIC Number",
-              "Account Status",
-              "Rejection Reason",
-              "Picture",
-              "PDM Check",
-              "Receiving Date",
-              "Application Decision",
-              "TAT",
-              "Status change date",
-            ]}
-            options={{
-              filterType: "checkbox",
-            }}
+            columns={columns}
+            options={options}
           />
         </Grid>
         {/* <Grid item xs={12}>
