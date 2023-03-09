@@ -42,7 +42,12 @@ export default function EditStatusPopup({ handleClose, content }) {
           <Typography
             varient="h2"
             className={classes.heading}
-            style={{ fontWeight: "bold" }}
+            style={{
+              fontWeight: "bold",
+              marginTop: "10px",
+              marginLeft: "65px",
+              marginBottom: "23px",
+            }}
           >
             {" "}
             Select Updated Status{" "}
