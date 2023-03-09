@@ -13,6 +13,7 @@ import mock from "../dashboard/mock";
 import useStyles from "./styles";
 import classNames from "classnames";
 import girl_icon from "../../assets/images/girl_icon.jpg";
+import UploadButtonPopup from "./uploadButtonPopup";
 
 const datatableData = [
   [
@@ -428,6 +429,11 @@ export default function Tables() {
   };
 
   var [isSearchOpen, setSearchOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleUploadButtonPopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -444,10 +450,13 @@ export default function Tables() {
               className={classes.tblButton}
               variant="contained"
               color="primary"
-              // size="large"
+              onClick={toggleUploadButtonPopup}
             >
               Upload
             </Button>
+            {isOpen && (
+              <UploadButtonPopup handleClose={toggleUploadButtonPopup} />
+            )}
             <Button
               disableFocusRipple
               disableRipple
