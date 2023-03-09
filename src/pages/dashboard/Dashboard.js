@@ -5,7 +5,6 @@ import {
   Select,
   OutlinedInput,
   MenuItem,
-  Button,
 } from "@material-ui/core";
 import * as Icons from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
@@ -13,7 +12,6 @@ import {
   ResponsiveContainer,
   ComposedChart,
   AreaChart,
-  LineChart,
   Line,
   Area,
   PieChart,
@@ -27,13 +25,11 @@ import {
 import useStyles from "./styles";
 
 // components
-import mock from "./mock";
+
 import Widget from "../../components/Widget";
 import PageTitle from "../../components/PageTitle";
 import { Typography } from "../../components/Wrappers";
 import Dot from "../../components/Sidebar/components/Dot";
-import Table from "./components/Table/Table";
-import BigStat from "./components/BigStat/BigStat";
 
 const mainChartData = getMainChartData();
 const PieChartData = [

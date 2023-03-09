@@ -2,6 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
+import { useHistory } from "react-router-dom";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -39,6 +40,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Tables() {
   const classes = useStyles();
+
+  const history = useHistory();
+
+  const handleRowClick = (rowData) => {
+    const [name, company, city, state] = rowData;
+    history.push("/app/typography"); // Navigate to the new page
+  };
+
+  const columns = ["Name", "Company", "City", "State"];
+  const options = {
+    filter: true, // Enable filtering of the data
+    search: true, // Enable search box for the entire table
+    filterType: "checkbox",
+    onRowClick: handleRowClick, // Call the handleRowClick function when a row is clicked
+  };
+
   return (
     <>
       <PageTitle title="Tables" />
@@ -47,10 +64,8 @@ export default function Tables() {
           <MUIDataTable
             title="Employee List"
             data={datatableData}
-            columns={["Name", "Company", "City", "State"]}
-            options={{
-              filterType: "checkbox",
-            }}
+            columns={columns}
+            options={options}
           />
         </Grid>
         {/* <Grid item xs={12}>
