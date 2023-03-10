@@ -31,33 +31,18 @@ import {
 
 const structure = [
   { id: 0, label: "ADA Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
+
   {
     id: 1,
-    label: "Typography",
-    link: "/app/typography",
-    icon: <TypographyIcon />,
-  },
-  {
-    id: 2,
     label: "ADA Application Manager",
     link: "/app/tables",
     icon: <TableIcon />,
   },
   {
-    id: 3,
+    id: 2,
     label: "Change Password",
     link: "/app/notifications",
     icon: <NotificationsIcon />,
-  },
-  {
-    id: 4,
-    label: "UI Elements",
-    link: "/app/ui",
-    icon: <UIElementsIcon />,
-    children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-    ],
   },
 ];
 
