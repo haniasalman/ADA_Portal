@@ -20,10 +20,10 @@ import Sidebar from "../Sidebar";
 
 // pages
 import Dashboard from "../../pages/dashboard";
-import Typography from "../../pages/typography";
+import Typography from "../../pages/ApplicationDetail";
 import Notifications from "../../pages/notifications";
 // import Maps from "../../pages/maps";
-import Tables from "../../pages/tables";
+import Tables from "../../pages/ADAApplicationManager";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
 

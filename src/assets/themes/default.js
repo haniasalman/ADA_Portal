@@ -146,6 +146,7 @@ const defaultTheme = {
         marginLeft: 10,
       },
     },
+
     MuiOutlinedInput: {
       root: {
         border: "1px solid",

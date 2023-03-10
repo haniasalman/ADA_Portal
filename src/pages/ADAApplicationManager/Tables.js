@@ -4,9 +4,8 @@ import MUIDataTable from "mui-datatables";
 import { useHistory } from "react-router-dom";
 import { Search as SearchIcon } from "@material-ui/icons";
 // components
-import PageTitle from "../../components/PageTitle";
-import Widget from "../../components/Widget";
-import Table from "../dashboard/components/Table/Table";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import Widget from "../../components/Widget/Widget";
 
 // data
 import mock from "../dashboard/mock";

@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Typography } from "../../components/Wrappers/Wrappers";
+import { useState, useRef } from "react";
+import { ProgressBar } from "react-bootstrap";
 import {
   Checkbox,
   FormControl,
@@ -10,9 +12,39 @@ import {
   Select,
 } from "@material-ui/core";
 import useStyles from "./styles";
+import upload_icon from "../../assets/images/UploadIcon.png";
 
 export default function UploadButtonPopup({ handleClose, content }) {
   var classes = useStyles();
+
+  const [uploadPercentage, setUploadPercentage] = useState(0);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedName, setSelectedName] = useState("");
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedFile(file);
+    setSelectedName(file.name);
+    // Additional validation logic
+  };
+
+  const uploadFile = ({ target: { files } }) => {
+    let data = new FormData();
+    data.append("file", files[0]);
+
+    const options = {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent;
+
+        let percent = Math.floor((loaded * 100) / total);
+
+        if (percent < 100) {
+          setUploadPercentage(percent);
+        }
+      },
+    };
+  };
+
   return (
     <div
       style={{
@@ -52,8 +84,40 @@ export default function UploadButtonPopup({ handleClose, content }) {
             {" "}
             Upload File{" "}
           </Typography>
-          <div className={classes.EditStatus}>
-            <Typography>Approve</Typography>
+          <div
+            className={classes.EditStatus}
+            style={{ backgroundColor: "#F8F8FF" }}
+          >
+            <div style={{ marginLeft: "100px" }}>
+              <img src={upload_icon} alt="upload" />
+            </div>
+            <label
+              htmlFor="fileInput"
+              className={classes.uploadButton}
+              style={{ marginLeft: "85px" }}
+            >
+              Select File
+            </label>
+            <input
+              id="fileInput"
+              type="file"
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
+            {selectedName && (
+              <p style={{ marginLeft: "10px" }}>{selectedName}</p>
+            )}
+            {uploadPercentage > 0 && (
+              <div className="row mt-3">
+                <div className="col pt-1">
+                  <ProgressBar
+                    now={uploadPercentage}
+                    striped={true}
+                    label={`${uploadPercentage}%`}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </Grid>
         <button

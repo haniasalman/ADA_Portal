@@ -1,6 +1,17 @@
 import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles((theme) => ({
+  uploadButton: {
+    display: "inline-block",
+    padding: "10px 15px",
+    backgroundColor: "#ffff",
+    color: "blue",
+    borderRadius: "5px",
+    cursor: "pointer",
+    "&:hover": {
+      backgroundColor: "#0d874d",
+    },
+  },
   EditStatus: {
     border: "1px solid",
     borderRadius: "12px",

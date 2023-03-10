@@ -5,8 +5,8 @@ import { Grid } from "@material-ui/core";
 import useStyles from "./styles";
 
 // components
-import PageTitle from "../../components/PageTitle";
-import { Typography } from "../../components/Wrappers";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import { Typography } from "../../components/Wrappers/Wrappers";
 import { IconButton } from "@material-ui/core";
 import back_btn from "../../assets/images/back_btn.png";
 import ApplicationDetailImg from "../../assets/images/ApplicationDetailImg.png";
