@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Grid, Button, TextField, InputBase } from "@material-ui/core";
+import {
+  Grid,
+  Button,
+  TextField,
+  InputBase,
+  FormControlLabel,
+} from "@material-ui/core";
 import MUIDataTable from "mui-datatables";
 import { useHistory } from "react-router-dom";
 import { Search as SearchIcon } from "@material-ui/icons";
@@ -75,7 +81,7 @@ const datatableData = [
         borderRadius: "25px",
       }}
     />,
-    "Pass",
+    "Fail",
     "12:00/ 1/03/2023",
     "12:00/ 1/03/2023",
     "2 Day",
@@ -97,7 +103,7 @@ const datatableData = [
         borderRadius: "25px",
       }}
     />,
-    "Pass",
+    "Fail",
     "12:00/ 1/03/2023",
     "12:00/ 1/03/2023",
     "2 Day",
@@ -171,7 +177,7 @@ const datatableData = [
   ],
   [
     "Christian Birgitte",
-    "1234562223",
+    "123412345",
     "61101-1816234-9",
     "In Process",
     "CNIC Expired",
@@ -229,7 +235,7 @@ const datatableData = [
         borderRadius: "25px",
       }}
     />,
-    "Pass",
+    "Fail",
     "12:00/ 1/03/2023",
     "12:00/ 1/03/2023",
     "2 Day",
@@ -365,12 +371,12 @@ const datatableData = [
     "12:00/ 1/03/2023",
     "12:00/ 1/03/2023",
     "2 Day",
-    "12:00/ 1/03/2023",
+    "12:00/ 2/03/2023",
   ],
   [
     "Gaston Festus",
     "1234562223",
-    "61101-1816234-9",
+    "37405-1816234-9",
     "In Process",
     "CNIC Expired",
     <img
@@ -387,7 +393,7 @@ const datatableData = [
     "12:00/ 1/03/2023",
     "12:00/ 1/03/2023",
     "2 Day",
-    "12:00/ 1/03/2023",
+    "12:00/ 2/03/2023",
   ],
 ];
 
@@ -407,23 +413,157 @@ export default function Tables() {
     history.push("/app/typography"); // Navigate to the new page
   };
 
+  const [filteredData, setFilteredData] = useState(datatableData);
+
   const columns = [
-    "Name",
-    "Application ID",
-    "CNIC Number",
-    "Account Status",
+    {
+      name: "Name",
+      options: {
+        filter: true,
+        // filterList: ["Business Analyst"],
+        customFilterListOptions: { render: (f) => `Name: ${f}` },
+        filterType: "textField", // set filterType's at the column level
+      },
+      // label: "Name",
+      // options: {
+      //   filter: false,
+      //   customHeadRender: (columnMeta) => (
+      //     <th key={columnMeta.index}>
+      //       <div style={{ display: "flex", flexDirection: "column" }}>
+      //         <div class="MUIDataTableHeadCell-data-132">{`${columnMeta.label}`}</div>
+      //         {/* <TextField
+      //           placeholder={`Search ${columnMeta.label}`}
+      //           style={{ flexGrow: 1 }}
+      //         /> */}
+      //         <div
+      //           className={classNames(classes.search, {
+      //             [classes.searchFocused]: isSearchOpen,
+      //           })}
+      //         >
+      //           <div
+      //             className={classNames(classes.searchIcon, {
+      //               [classes.searchIconOpened]: isSearchOpen,
+      //             })}
+      //             onClick={() => setSearchOpen(isSearchOpen)}
+      //           >
+      //             <SearchIcon classes={{ root: classes.headerIcon }} />
+      //           </div>
+      //           <InputBase
+      //             classes={{
+      //               root: classes.inputRoot,
+      //               input: classes.inputInput,
+      //             }}
+      //           />
+      //         </div>
+      //       </div>
+      //     </th>
+      //   ),
+      // },
+    },
+    {
+      name: "Application ID",
+      options: {
+        filter: true,
+        customFilterListOptions: { render: (f) => `Application ID: ${f}` },
+        filterType: "textField",
+      },
+    },
+    {
+      name: "CNIC Number",
+      options: {
+        filter: true,
+        customFilterListOptions: { render: (f) => `CNIC Number: ${f}` },
+        filterType: "textField",
+      },
+    },
+
+    {
+      name: "Account Status",
+      options: {
+        // filter: false,
+        filterType: "checkbox",
+        customBodyRender: (value) => {
+          let color;
+          switch (value) {
+            case "Approved":
+              color = "#1C882A";
+              break;
+            case "Rejected":
+              color = "#EF3826";
+              break;
+            case "In Process":
+              color = "#3D42DF";
+              break;
+            default:
+              color = "default";
+          }
+          return <div style={{ color: color }}>{value}</div>;
+        },
+      },
+    },
     "Rejection Reason",
-    "Picture",
-    "PDM Check",
-    "Receiving Date",
-    "Application Decision",
-    "TAT",
-    "Status change date",
+    {
+      name: "Picture",
+      options: {
+        filter: false,
+      },
+    },
+    {
+      name: "PDM Check",
+      options: {
+        customBodyRender: (value) => (
+          <div style={{ color: value === "Fail" ? "#EF3826" : "default" }}>
+            {value}
+          </div>
+        ),
+      },
+    },
+    {
+      name: "Receiving Date",
+
+      options: {
+        filter: true,
+        customFilterListOptions: { render: (f) => `Receiving Date: ${f}` },
+        filterType: "textField",
+      },
+    },
+    {
+      name: "Application Decision",
+      options: {
+        filter: true,
+        customFilterListOptions: {
+          render: (f) => `Application Decision: ${f}`,
+        },
+        filterType: "textField",
+      },
+    },
+    {
+      name: "TAT",
+      options: {
+        filter: true,
+        customFilterListOptions: {
+          render: (f) => `TAT: ${f}`,
+        },
+        filterType: "textField",
+      },
+    },
+    {
+      name: "Status change date",
+      options: {
+        filter: true,
+        customFilterListOptions: {
+          render: (f) => `Status change date: ${f}`,
+        },
+        filterType: "textField",
+      },
+    },
   ];
   const options = {
     filter: true, // Enable filtering of the data
     search: true, // Enable search box for the entire table
-    filterType: "checkbox",
+    filterType: "dropdown",
+    print: false,
+    viewColumns: false,
     onRowClick: handleRowClick, // Call the handleRowClick function when a row is clicked
   };
 

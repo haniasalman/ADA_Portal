@@ -113,4 +113,17 @@ export default makeStyles((theme) => ({
       },
     },
   },
+
+  main: {
+    display: "flex",
+    flex: "1 0 auto",
+  },
+  searchText: {
+    flex: "0.8 0",
+  },
+  clearIcon: {
+    "&:hover": {
+      color: theme.palette.error.main,
+    },
+  },
 }));

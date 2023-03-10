@@ -159,6 +159,46 @@ const defaultTheme = {
         color: "#9B9B9B",
       },
     },
+    // MUIDataTable: {
+    //     root: {
+    //       backgroundColor: "#red",
+    //     },
+    //     paper: {
+    //       boxShadow: "none",
+    //     },
+    // },
+    MUIDataTableFilter: {
+      root: {
+        backgroundColor: "#fffff",
+      },
+      resetLink: {
+        color: "#27AE60",
+      },
+    },
+    MUIDataTableToolbar: {
+      iconActive: {
+        color: "#27AE60",
+      },
+      icon: {
+        "&:hover": {
+          color: "#27AE60",
+        },
+      },
+    },
+    // MUIDataTableToolbar-icon-103:hover
+    // MuiInput: {
+    //   underline: {
+    //     "&:after": {
+    //       transition: "none",
+    //       borderBottom: "2px solid #27AE60",
+    //     },
+    //   },
+    // },
+    // MuiFormLabel: {
+    //     root: {
+    //       "&:focus": { color: "green" },
+    //     },
+    //   },
   },
 };
 
