@@ -77,7 +77,7 @@ export default function UploadButtonPopup({ handleClose, content }) {
             style={{
               fontWeight: "bold",
               marginTop: "10px",
-              marginLeft: "65px",
+              marginLeft: "100px",
               marginBottom: "23px",
             }}
           >
@@ -102,11 +102,16 @@ export default function UploadButtonPopup({ handleClose, content }) {
               id="fileInput"
               type="file"
               style={{ display: "none" }}
+              accept=".csv"
               onChange={handleFileChange}
             />
+            <p style={{ marginLeft: "10px" }}>
+              Supported formats: Only CSV file is allowed{" "}
+            </p>
             {selectedName && (
               <p style={{ marginLeft: "10px" }}>{selectedName}</p>
             )}
+
             {uploadPercentage > 0 && (
               <div className="row mt-3">
                 <div className="col pt-1">
@@ -133,8 +138,8 @@ export default function UploadButtonPopup({ handleClose, content }) {
             fontFamily: "Inter",
             textAlign: "center",
             marginTop: "10px",
-            marginLeft: "10px",
-            marginRight: "20px",
+            marginLeft: "20px",
+            marginRight: "10px",
             background: "#0AA539",
             fontSize: "15px",
           }}

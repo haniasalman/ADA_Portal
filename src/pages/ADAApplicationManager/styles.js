@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     borderRadius: "5px",
     cursor: "pointer",
     "&:hover": {
-      backgroundColor: "#0d874d",
+      backgroundColor: "#ffff",
     },
   },
   EditStatus: {
